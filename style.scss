@@ -3,6 +3,7 @@
 :root {
     /* ### Primary */
     --blue: hsl(223, 87%, 63%);
+    --ligth-blue: hsl(223, 87%, 73%);
     --blue-shadow: hsla(223, 87%, 63%, 40%);
 
     /* ### Secondary */
@@ -97,6 +98,10 @@ form {
         background-color: var(--blue);
         color: hsl(0, 0%, 255%);
         box-shadow: 0 6px 10px var(--blue-shadow);
+        cursor: pointer;
+        &:hover {
+            background-color: var(--ligth-blue);
+        }
     }
 }
 

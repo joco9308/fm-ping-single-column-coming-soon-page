@@ -2,6 +2,7 @@
 :root {
   /* ### Primary */
   --blue: hsl(223, 87%, 63%);
+  --ligth-blue: hsl(223, 87%, 73%);
   --blue-shadow: hsla(223, 87%, 63%, 40%);
   /* ### Secondary */
   --pale-blue: hsl(223, 100%, 88%);
@@ -138,6 +139,11 @@ form button {
   color: white;
   -webkit-box-shadow: 0 6px 10px var(--blue-shadow);
           box-shadow: 0 6px 10px var(--blue-shadow);
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--ligth-blue);
 }
 
 .hidden {
