@@ -7,19 +7,25 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
   <script src="https://kit.fontawesome.com/0e73b2ebaf.js" crossorigin="anonymous"></script> 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dist/css/style.min.css">
   <title>Frontend Mentor | Ping coming soon page</title>
 
 </head>
 <body>
   <main>
-    <img src="./images/logo.svg" alt="logo">
-    <h1>We are launching soon!</h1>
-    <p>Subscribe and get notified</p>
-    <form action="" >
-      <input type="email">
+    <header >
+      <img class="logo" src="./images/logo.svg" alt="logo">
+      <h1 class="title">We are launching <span class="secondary">soon!</span></h1>
+      <p class="sub-title">Subscribe and get notified</p>  
+    </header>
+    <form action="" novalidate>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Your email adress...">
+        <div class="error hidden">Please provide a valid email address</div>
+      </div>
       <button>Notify Me</button>
     </form>
+    <img class="illustration" src="images/illustration-dashboard.png" alt="illustration">
   </main>
 
 
@@ -30,12 +36,32 @@
       <i class="fa fa-instagram"></i>
     </div>
 
-    <p>&copy; Copyright Ping. All rights reserved.</p>
+    <p class="copyright">&copy; Copyright Ping. All rights reserved.</p>
     
     <p class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
+      <br>
+      Coded by <a href="#">József Molnár</a>.
     </p>
   </footer>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', e => {
+      e.preventDefault()
+      const emailField = e.currentTarget['email'];
+      if (!isValidEmail(emailField.value)) {
+        emailField.classList.add('error');
+        emailField.nextElementSibling.classList.remove('hidden')
+      } else {
+        emailField.classList.remove('error');
+        emailField.nextElementSibling.classList.add('hidden')
+      }
+    })
+
+    function isValidEmail(email) {
+      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+    }
+  </script>
 </body>
 </html>
